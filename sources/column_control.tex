@@ -3,10 +3,10 @@
 We saw that there were 4 types of columns. Actually, I lied: there is only one type of column! It's the column \snippet{Q}. This column can receive a ton of optional parameters (between square brackets \snippet{[]}). For instance:
 
 \begin{itemize}
-	\item \snippet{Q[l]} is a left-aligned column
-	\item \snippet{Q[c]} is a centered column
-	\item \snippet{Q[r]} is a right-aligned column
-	\item \snippet{Q[j]} is a justified column
+	\item \snippet{Q[l]} is a left-aligned column;
+	\item \snippet{Q[c]} is a centered column;
+	\item \snippet{Q[r]} is a right-aligned column;
+	\item \snippet{Q[j]} is a justified column.
 \end{itemize}
 
 By default, \snippet{Q} (without any option) is a justified column, and thus is equivalent to \snippet{Q[j]}.
@@ -15,7 +15,7 @@ By default, \snippet{Q} (without any option) is a justified column, and thus is 
 	The columns \snippet{l}, \snippet{c}, \snippet{r}, \snippet{j} that we saw in the previous chapter are aliases of \snippet{Q[l]}, \snippet{Q[c]}, \snippet{Q[r]}, \snippet{Q[j]}, respectively.
 \end{infobox}
 
-You'll ask me what's the point? The idea of keeping the \snippet{l}, \snippet{c}, \snippet{r}, \snippet{j} is retro-compatibility with native Latex table (it's also faster to type and easier for a human to parse). The idea of the \snippet{Q} syntax is that we can also pass it numerous other options, that we will see just now.
+You'll ask me what's the point? The idea of keeping the \snippet{l}, \snippet{c}, \snippet{r}, \snippet{j} is retro-compatibility with native \LaTeX\ table (it's also faster to type and easier for a human to parse). The idea of the \snippet{Q} syntax is that we can also pass it numerous other options, that we will see just now.
 
 \section{Control column width}
 
@@ -37,9 +37,9 @@ First of all, if you experimented a bit on your own, you might have noticed that
 
 On one hand, it's practical when your text has a reasonable length, because you don't have to compute the column width on your own. On the other hand, you cannot have long text in such tables. 
 
-Instead, tabularray offers the possibility to specify a column width: in centimeters (\snippet{cm}), points (\snippet{pt}), or any other Latex measuring unit (see \url{https://en.wikibooks.org/wiki/LaTeX/Lengths}). You don't know which one to chose? Keep it simple and use centimeters.
+Instead, \texttt{tabularray} offers the possibility to specify a column width: in centimeters (\snippet{cm}), points (\snippet{pt}), or any other \LaTeX\ measuring unit (see \url{https://en.wikibooks.org/wiki/LaTeX/Lengths}). You don't know which one to chose? Keep it simple and use centimeters.
 
-To define a column width, simply write it in the column's options. For instance, \snippet{Q[4cm]} defines a 4cm wide column. We can of course mix horizontal alignment options too, for instance \snippet{Q[l, 4cm]}. 
+To define a column width, simply write it in the column's options. For instance, \snippet{Q[4cm]} defines a 4\,cm wide column. We can of course mix horizontal alignment options too, for instance \snippet{Q[l, 4cm]}. 
 Let's see it in action:
 
 \begin{Code}[show-output]
@@ -71,8 +71,8 @@ Now that we have multiline cells, we must take into account vertical alignment. 
 Let's start with two placement options: 
 
 \begin{itemize}
-	\item At the top of the cell, with the option \snippet{h} (for \textbf{h}ead)
-	\item At the end of the cell, with the option \snippet{f} (for \textbf{f}oot)
+	\item At the top of the cell, with the option \snippet{h} (for \textbf{h}ead);
+	\item At the end of the cell, with the option \snippet{f} (for \textbf{f}oot).
 \end{itemize}
 
 This option must be passed as an argument to the column \snippet{Q}. It can of course be cumulated with the options we saw before.
@@ -92,9 +92,9 @@ The default value for vertical alignment is... neither of these two values \emoj
 There are three possible placements of the baseline:
 
 \begin{itemize}
-	\item Under the first line of the text block, using the \textbf{t} option (\textbf{t}op). This is the default option
-	\item Under the last line of the text block, using the \textbf{b} option (\textbf{b}ottom)
-	\item In the \textbf{m}iddle between the top and bottom lines, using the \textbf{m} option 
+	\item Under the first line of the text block, using the \textbf{t} option (\textbf{t}op). This is the default option;
+	\item Under the last line of the text block, using the \textbf{b} option (\textbf{b}ottom);
+	\item In the \textbf{m}iddle between the top and bottom lines, using the \textbf{m} option. 
 \end{itemize}
 
 \begin{Code}
@@ -123,7 +123,7 @@ Will render like so (I added the baseline in red):
 \end{standalonebox}
 \end{center}
 
-It's so simple, and yet, compared to the hell you need to go through to get the same result with native Latex tables, it's a revolution!
+It's so simple, and yet, compared to the hell you need to go through to get the same result with native \LaTeX\ tables, it's a revolution!
 
 \begin{warningbox}{Baseline alignment is not text alignment}
 	Be careful, as we said the vertical alignment will align the \emph{baseline}, not the text itself. This will give counter-intuitive results when several cells are multiline.
@@ -163,31 +163,31 @@ Combining every possible option into one table, we get the following result.
 Note that options \snippet{h} and \snippet{b} are not equivalent, and neither are \snippet{f} and \snippet{t}.
 
 \section{Multiline cells}
-Sometimes, it is useful to write several lines in a cell, and deciding yourself where you want the line break. For this, there is a very simple solution: put the cell text in-between curly braces \snippet{\{\}}, and now you are able to use the Latex command for linebreak: \snippet{\textbackslash\textbackslash}. 
+Sometimes, it is useful to write several lines in a cell, and deciding yourself where you want the line break. For this, there is a very simple solution: put the cell text in-between curly braces \snippet{\{\}}, and now you are able to use the \LaTeX\ command for linebreak: \snippet{\textbackslash\textbackslash}. 
 
 \begin{Code}[show-output]
 	\begin{tblr}{lll}
 		Country    & Capital(s)             & Comment \\ \hline
 		Belize     & Belmopan                & N/A \\
-		Bénin      & \highLight{{Porto-Novo \\ Cotonou}} & \highLight{{Official capital \\ De facto administrative capital}}\\
+		Benin      & \highLight{{Porto-Novo \\ Cotonou}} & \highLight{{Official capital \\ De facto administrative capital}}\\
 		Bhutan & Thimphu                 & N/A \\
 	\end{tblr}
 \end{Code}
 
-Of course, multiline cells can be horizontally or vertically aligned. In the following example, observe how ``Bénin'' is now vertically centered with the rest of the row.
+Of course, multiline cells can be horizontally or vertically aligned. In the following example, observe how ``Benin'' is now vertically centered with the rest of the row.
 
 \begin{Code}[show-output]
 	\begin{tblr}\highLight{{lQ[l,m]Q[l,m]}}
 		Country    & Capital(s)             & Comment \\ \hline
 		Belize     & Belmopan                & N/A \\
-		Bénin      & {Porto-Novo \\ Cotonou} & {Official capital \\ De facto administrative capital}\\
+		Benin      & {Porto-Novo \\ Cotonou} & {Official capital \\ De facto administrative capital}\\
 		Bhutan & Thimphu                 & N/A \\
 	\end{tblr}
 \end{Code}
 
 \section{Columns spanning all the available space}
 
-tabularray also has another column, the column \snippet{X}\footnote{This column is also an alias of the column \snippet{Q}, more specifically is an alias of \snippet{Q[co=1]}. But it's often easier to use the \snippet{X} notation, in resemblance to tabularx package. The \snippet{X} column notation also accepts optional arguments, e.g. \snippet{X[l,m]}.}. An \snippet{X} column will calculate the remaining free space available across the page width, and automatically fill this space. If there are several \snippet{X} columns in the table, the space is equally distributed over these columns, meaning they will all have the same width.
+\texttt{tabularray} also has another column, the column \snippet{X}\footnote{This column is also an alias of the column \snippet{Q}, more specifically is an alias of \snippet{Q[co=1]}. But it's often easier to use the \snippet{X} notation, in resemblance to \texttt{tabularx} package. The \snippet{X} column notation also accepts optional arguments, e.g. \snippet{X[l,m]}.}. An \snippet{X} column will calculate the remaining free space available across the page width, and automatically fill this space. If there are several \snippet{X} columns in the table, the space is equally distributed over these columns, meaning they will all have the same width.
 
 \begin{Code}[show-output]
 % Reference table
@@ -207,7 +207,7 @@ tabularray also has another column, the column \snippet{X}\footnote{This column 
 \end{tblr}
 \end{Code}
 
-If you don't want the table to span over the whole page width, but still want to use  \snippet{X} columns, you just have the specify the desired total width in the table header and tabularray will manage. Small but important detail, now that there are several arguments in the header (the column specification and the table width), the colspec must be specified using the keyword \snippet{colspec=\{...\}}.
+If you don't want the table to span over the whole page width, but still want to use  \snippet{X} columns, you just have the specify the desired total width in the table header and \texttt{tabularray} will manage. Small but important detail, now that there are several arguments in the header (the column specification and the table width), the colspec must be specified using the keyword \snippet{colspec=\{...\}}.
 
 \begin{Code}[show-output]
 \begin{tblr}{
@@ -222,8 +222,8 @@ If you don't want the table to span over the whole page width, but still want to
 \end{Code}
 
 
-\begin{errorbox}{Blank lines and tabularray}
-There cannot be blank lines in a tabularray header, it would break compilation. For instance, the following table will generate a compilation error:
+\begin{errorbox}{Blank lines and \texttt{tabularray}}
+There cannot be blank lines in a \texttt{tabularray} header, it would break compilation. For instance, the following table will generate a compilation error:
 
 \begin{Code}
 \begin{tblr}{
@@ -256,7 +256,7 @@ Similarly, too many blank lines in the body of the table might cause unexpected 
 \end{tblr}
 \end{Code}
 
-tabularray does not guarantee correct results if there are two or more consecutive blank lines. However, lines with only a comment do not count as blank lines.
+\texttt{tabularray} does not guarantee correct results if there are two or more consecutive blank lines. However, lines with only a comment do not count as blank lines.
 \end{errorbox}
 
 For a finer setting of the column size, it is possible to give an argument to the \snippet{X} column. This argument, a number, is a priority coefficient, for when there are several \snippet{X} columns in the table. Remember that, by default, the remaining space is distributed equally. Thanks to these coefficents, it is possible to adjust this distribution.
@@ -369,10 +369,10 @@ The solution is available in \Cref{app:solution_control}.
 \vspace*{\fill} % \vfill not working zt the beginning of a page because latex ignores any space at the beginning of a page
 
 \begin{infobox}{End of the first part}
-	You now know enough about tabularray to create 99\% of the tables you will ever need to create. You can stop here for your first read-through. Experiment a bit, create your own tables, and when you will feel like it, come back and learn more with the next chapters!
+	You now know enough about \texttt{tabularray} to create 99\,\% of the tables you will ever need to create. You can stop here for your first read-through. Experiment a bit, create your own tables, and when you will feel like it, come back and learn more with the next chapters!
 	\vspace{1em}
 	
-	By the way, if creating the tables by hand is too tedious, you can also use the website \url{https://www.latex-tables.com/}. You can generate tabularray tables by selecting ``tabularray'' in the ``Latex environment'' dropdown.
+	By the way, if creating the tables by hand is too tedious, you can also use the website \url{https://www.latex-tables.com/}. You can generate \texttt{tabularray} tables by selecting ``tabularray'' in the ``LaTeX environment'' dropdown.
 \end{infobox}
 
 \vfill
