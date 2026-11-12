@@ -3,7 +3,7 @@
 The previous chapter covered cell and column management. We will now deal with how our cells and columns are separated. This chapter will be brief, enjoy it while it lasts \emoji{grinning}.
 
 \section{Add all separation lines}
-If you want to display all horizontal and/or vertical lines, there is a command for that. Since the option is passed to tabularray's header, do not forget to put the colspec inside the keyword argument \snippet{colspec=\{...\}}.
+If you want to display all horizontal and/or vertical lines, there is a command for that. Since the option is passed to \texttt{tabularray}'s header, do not forget to put the colspec inside the keyword argument \snippet{colspec=\{...\}}.
 
 \begin{Code}[show-output]
 \begin{tblr}{
@@ -18,7 +18,7 @@ If you want to display all horizontal and/or vertical lines, there is a command 
 \end{Code}
 
 \section{Manage row and column spacing}
-As we previously saw, tabularray rows are naturally larger than native Latex rows. This vertical spacing (as well as the horizontal spacing) can be changed with the options \snippet{rowsep} and \snippet{colsep} in the table's header. You can use any size indicator, it is common to use \snippet{pt} but \snippet{cm} or anything else that suits you also works.
+As we previously saw, \texttt{tabularray} rows are naturally larger than native \LaTeX\ rows. This vertical spacing (as well as the horizontal spacing) can be changed with the options \snippet{rowsep} and \snippet{colsep} in the table's header. You can use any size indicator, it is common to use \snippet{pt} but \snippet{cm} or anything else that suits you also works.
 
 \begin{Code}[show-output]
 % reference table
@@ -46,7 +46,7 @@ As we can see, \snippet{rowsep} defines the margin between each row and its neig
 
 \section{Manage merged cell expansion}
 
-Let's have another look to merged cells. If you played with them a bit, you might have noticed that tabularray will expand your table so that the text in the merged cell fits on a single line. For instance:
+Let's have another look to merged cells. If you played with them a bit, you might have noticed that \texttt{tabularray} will expand your table so that the text in the merged cell fits on a single line. For instance:
 
 \begin{Code}[show-output]
 % Reference table
@@ -75,9 +75,9 @@ We can see that only the last column is extended to make the merged cell fit. Si
 There are several ways to fix the issue. The first one is to set the columns (and rows) width, as merged cells respect their parent's column/row width, but this is not always interesting or easy. The second solution is to use another computation mode for cell expansion, with the header attribute \snippet{hspan} (and \snippet{vspan}).
 
 \begin{itemize}
-	\item \snippet{hspan=default} will extend the last column as much as possible, it is the default behaviour we saw.
-	\item \snippet{hspan=even} will evenly distribute the extra space between the margins of the columns in which the cells are merged
-	\item \snippet{hspace=minimal} will force the merged cell to not extend, and thus insert line breaks in the merged cell if necessary
+	\item \snippet{hspan=default} will extend the last column as much as possible, it is the default behaviour we saw;
+	\item \snippet{hspan=even} will evenly distribute the extra space between the margins of the columns in which the cells are merged;
+	\item \snippet{hspace=minimal} will force the merged cell to not extend, and thus insert line breaks in the merged cell if necessary.
 \end{itemize}
 
 Similarly, \snippet{vspan} can be either \snippet{default} or \snippet{even} (but not \snippet{minimal}!).
@@ -114,8 +114,8 @@ Note that \snippet{hspan=even} (or \snippet{vspan}) does not guarantee that the 
 
 \begin{infobox}{TL;DR}
 \begin{itemize}
-	\item Use \snippet{hlines}, \snippet{vlines} in the table header to automatically display horizontal and vertical lines
-	\item Use \snippet{rowsep}, \snippet{colsep} in the table header to change the spacing between rows and columns
+	\item Use \snippet{hlines}, \snippet{vlines} in the table header to automatically display horizontal and vertical lines;
+	\item Use \snippet{rowsep}, \snippet{colsep} in the table header to change the spacing between rows and columns;
 	\item Use \snippet{hspan} and \snippet{vspan} with the values \snippet{default}, \snippet{even} or (for \snippet{hspan} only) \snippet{minimal} to manage the extension of rows and columns containing merged cells.
 \end{itemize}
 
