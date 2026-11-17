@@ -1,13 +1,13 @@
 \chapter{Library functional}\label{app:functional}
 
-The \snippet{functional} library from tabularray is very powerful. It can modify cell contents, their style, etc., before the table is displayed. However, it relies on the \snippet{functional} package, which itself is a modification of the Latex3 syntax, and thus not the most beginner friendly. Nevertheless, after a few dark magic incantations, the results can be stunning. 
+The \snippet{functional} library from \texttt{tabularray} is very powerful. It can modify cell contents, their style, etc., before the table is displayed. However, it relies on the \snippet{functional} package, which itself is a modification of the \LaTeX3 syntax, and thus not the most beginner friendly. Nevertheless, after a few dark magic incantations, the results can be stunning. 
 
-Here is an example, that automates the tikz drawing of the table from \Cref{sec:libraries}. Do not panic if you do not understand the code, just remember that the library exists \emoji{slightly-smiling-face}. 
+Here is an example, that automates the Ti\emph{k}Z drawing of the table from \Cref{sec:libraries}. Do not panic if you do not understand the code, just remember that the library exists \emoji{slightly-smiling-face}. 
 
 Our preamble gets some weird voodoo:
 
 \begin{Code}
-\documentclass{article}  % Or any other documentclass
+\documentclass{article}  % Or any other document class
 \usepackage{tabularray}
 \UseTblrLibrary{functional, tikz}
 \usepackage{xcolor}
