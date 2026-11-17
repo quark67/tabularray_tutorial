@@ -1,10 +1,10 @@
 \chapter{Let's add some styling}\label{sec:styling}
 
-We now arrive to a big chunk of this tutorial: styling tables. tabularray has a very powerful styling mechanism, that allows to easily create complex designs.
+We now arrive to a big chunk of this tutorial: styling tables. \texttt{tabularray} has a very powerful styling mechanism, that allows to easily create complex designs.
 
 \section{A bit of colour and formatting!}
-Colours in a table can be visually very efficient for carrying information, provided they are used sparingly. In any case, they are very to integrate within tabularray. 
-Before anything, it is necessary to load the package \snippet{xcolor} in the preamble (this won't be useful anymore with the version 2026A)\footnote{xcolors' default colors are very saturated: this is {\sethlcolor{red}\hl{red}}, this is {\sethlcolor{green}\hl{green}}. However, colors can be mixed together: \snippet{red!60} is 60\% red and 40\% white (the default mixing color), and {\sethlcolor{red!60}\hl{gives this color}}. Similarly, \snippet{green!70!black} will be 70\% green, 20\% black and {\sethlcolor{green!70!black}\hl{give this.}}}. %Personally, I also like to load the package \snippet{ninecolors}\footnote{\url{https://mirrors.ctan.org/macros/latex/contrib/ninecolors/ninecolors.pdf}}, which offers pretty colours.
+Colours in a table can be visually very efficient for carrying information, provided they are used sparingly. In any case, they are very to integrate within \texttt{tabularray}. 
+Before anything, it is necessary to load the package \snippet{xcolor} in the preamble (this won't be useful anymore with the version 2026A)\footnote{\texttt{xcolor}'s default colors are very saturated: this is {\sethlcolor{red}\hl{red}}, this is {\sethlcolor{green}\hl{green}}. However, colors can be mixed together: \snippet{red!60} is 60\% red and 40\% white (the default mixing color), and {\sethlcolor{red!60}\hl{gives this color}}. Similarly, \snippet{green!80!black} will be 80\% green, 20\% black and {\sethlcolor{green!80!black}\hl{give this.}}}. %Personally, I also like to load the package \snippet{ninecolors}\footnote{\url{https://mirrors.ctan.org/macros/latex/contrib/ninecolors/ninecolors.pdf}}, which offers pretty colours.
 
 \begin{Code}
 \documentclass{article}
@@ -29,7 +29,7 @@ We can now give cells a background color with our friend the command \snippet{\t
 
 Note that since we are not merging cells, we do not need the optional argument of \snippet{\textbackslash SetCell} (the one between square brackets \snippet{[]}).
 
-You can also manage text color with the argument \snippet{fg}, or text size, its font family (\snippet{\textbackslash sffamily}, \snippet{\textbackslash ttfamily}, \snippet{\textbackslash bfseries}, \snippet{\textbackslash itshape}, \snippet{\textbackslash large}, \snippet{\textbackslash small}...), both with the argument \snippet{font}.
+You can also manage text color with the argument \snippet{fg}, or text size and its font family (\snippet{\textbackslash sffamily}, \snippet{\textbackslash ttfamily}, \snippet{\textbackslash bfseries}, \snippet{\textbackslash itshape}, \snippet{\textbackslash large}, \snippet{\textbackslash small}...), both with the argument \snippet{font}.
 
 \begin{Code}
 \begin{tblr}{llllll}  % Either with \SetCell...
@@ -40,7 +40,7 @@ You can also manage text color with the argument \snippet{fg}, or text size, its
 \end{tblr}
 \end{Code}
 \begin{Code}[show-output]
-\begin{tblr}{llllll}  % Or native Latex when possible (not for everything)
+\begin{tblr}{llllll}  % Or native LaTeX when possible (not for everything)
 	Company & Q1 & Q2 & Q3 & Q4 & Total\\ \hline
 	\highLight{\small\color{gray}\texttt{COSTO}}    & +150k & -300k & +210k & +150k & \SetCell{green!80!black} +210k \\
 	\highLight{\small\color{gray}\texttt{McDalle}}  & -120k & -200k & -200k & +250k & \SetCell{red!60} -270k \\
@@ -71,7 +71,7 @@ We can also use header styling rather than scatter it in the table body. The res
 	FireCar  & +150k & +300k & +450k & +150k & +1050k \\
 \end{tblr}\end{Code}
 
-Applying a style to \snippet{cell\{i\}\{j\}} is equivalent to applying the same style to the cell in the i-th row and the j-th column with \snippet{\textbackslash SetCell}. 
+Applying a style to \snippet{cell\{i\}\{j\}} is equivalent to applying the same style to the cell in the $i$-th row and the $j$-th column with \snippet{\textbackslash SetCell}. 
 
 Furthermore, if you want to give the same style to different cells, you can use the comma separator \snippet{,}: in the example above, \snippet{cell\{2,4\}\{6\}} applies both to \snippet{cell\{2\}\{6\}} and \snippet{cell\{4\}\{6\}}. For a range of cells, you can use the dash joiner \snippet{-}: \snippet{cell\{2-4\}\{1\}} applies to \snippet{cell\{2\}\{1\}}, \snippet{cell\{3\}\{1\}} and \snippet{cell\{4\}\{1\}}. Useful!
 
@@ -82,7 +82,7 @@ Still further, you can select several distinct cells with the syntax \snippet{ce
 Why do we need two different ways to define styling in our table if they are equivalent?
 \end{questionbox}
 
-Defining the style in the header allows for a clear seperation of styling and data, but every time we insert or delete a row, you need to update the coordinates of your cells in the header. Which migh cause issues when you are regularly updating your table, or when you are working with people not used to tabularray\footnote{If you already worked collaboratively on a Latex project, you know there is nothing more frustrating than having to fix your table every time your colleague tries to change something, then sends you a message ``the table is broken it's not compiling well anymore''.}.
+Defining the style in the header allows for a clear seperation of styling and data, but every time we insert or delete a row, you need to update the coordinates of your cells in the header. Which migh cause issues when you are regularly updating your table, or when you are working with people not used to \texttt{tabularray}\footnote{If you already worked collaboratively on a \LaTeX\ project, you know there is nothing more frustrating than having to fix your table every time your colleague tries to change something, then sends you a message ``the table is broken it's not compiling well anymore''.}.
 
 Personally, I recommend to use the styling in the header as much as possible, which is when the data are more or less finalized, and when the other users of your document know how to use styling in the header (or won't touch it).
 
@@ -129,7 +129,7 @@ To illustrate, the following two tables have the same result:
 
 \section{Style of a row, style of a column}
 
-Until now, we were defining some properties of columns in the \snippet{colspec} argument (e.g. \snippet{Q[3cm, m, l]}). But we can also use the arguments \snippet{columns}, \snippet{column} to avoid overloading the colspec. \snippet{columns} applies to all columns, whereas \snippet{column\{i\}} only applies to the i-th column.
+Until now, we were defining some properties of columns in the \snippet{colspec} argument (e.g. \snippet{Q[3cm, m, l]}). But we can also use the arguments \snippet{columns}, \snippet{column} to avoid overloading the colspec. \snippet{columns} applies to all columns, whereas \snippet{column\{i\}} only applies to the $i$-th column.
 
 Similarly, the same exists for the rows, with \snippet{rows} and \snippet{row}. The in-body variant is \snippet{\textbackslash SetRow\{\}} at the beginning of a row.
 
@@ -154,7 +154,7 @@ And what if we want to apply a style to the whole table? We can use the argument
 	& Alphabets & & & & & \\ \hline
 	Greek & {Alpha \\ $\alpha$} & {Beta \\ $\beta$} & {Gamma \\ $\gamma$} & {Delta \\ $\delta$} & {Epsilon \\ $\varepsilon$} & {Zeta \\ $\zeta$} \\
 	& {Eta \\ $\eta$} & {Theta \\ $\theta$} & {Iota \\ $\iota$} & {Kappa \\ $\kappa$} & {Lambda \\ $\lambda$} & {Mu \\ $\mu$} \\
-	& {Nu \\ $\nu$} & {Xi \\ $\xi$} & {Omikron \\ o} & {Pi \\ $\pi$} & {Rho \\ $\rho$} & {Sigma \\ $\sigma$, $\varsigma$} \\
+	& {Nu \\ $\nu$} & {Xi \\ $\xi$} & {Omicron \\ o} & {Pi \\ $\pi$} & {Rho \\ $\rho$} & {Sigma \\ $\sigma$, $\varsigma$} \\
 	& {Tau \\ $\tau$} & {Upsilon \\ $\upsilon$} & {Phi \\ $\varphi$} & {Chi \\ $\chi$} & {Psi \\ $\psi$} & {Omega \\ $\omega$}\\
 \end{tblr}
 \end{Code}
@@ -181,11 +181,11 @@ We have 5 different styling instructions for the topleft cell:
 
 % Todo not great to have compactitem but gives a nicer page display
 \begin{compactitem}
-	\item left aligned text (inherited from \snippet{colspec})
-	\item blue background and right aligned text (inherited from \snippet{row\{1\}})
-	\item red background (inherited from \snippet{cell\{1\}\{1\}})
-	\item green background (inherited from \snippet{column\{1\}})
-	\item magenta background (inherited from \snippet{\textbackslash SetCell})
+	\item left aligned text (inherited from \snippet{colspec});
+	\item blue background and right aligned text (inherited from \snippet{row\{1\}});
+	\item red background (inherited from \snippet{cell\{1\}\{1\}});
+	\item green background (inherited from \snippet{column\{1\}});
+	\item magenta background (inherited from \snippet{\textbackslash SetCell}).
 \end{compactitem}
 
 Let's have a look at the compiled result:
@@ -210,7 +210,7 @@ So, do not forget to arrange your style elements in the order that suits you bes
 
 \subsection{Border type and colour}
 There are three different borders: \snippet{solid}, \snippet{dotted}, \snippet{dashed}.
-Similarly, the border width and color can be personalized, either in directly in the table (as an optional argument to the vertical border \snippet{|} or horizontal border \snippet{\textbackslash hline}), or in the table headers with the arguments \snippet{hline} and \snippet{vline}:
+Similarly, the border width and color can be personalized, either directly in the table (as an optional argument to the vertical border \snippet{|} or horizontal border \snippet{\textbackslash hline}), or in the table headers with the arguments \snippet{hline} and \snippet{vline}:
 
 \begin{Code}
 \begin{tblr}\highLight{{l|[dotted,green]ll}}  % styling in the body
@@ -262,10 +262,10 @@ Instead of defining the style as, say, \snippet{hline\{3\} = \{2pt, dotted\}}, y
 
 You can apply the same style to every odd column/row with the selector \snippet{odd}, and even with \snippet{even}.
 
-If you want the selector to start only at row (or column) \snippet{i} until the end of the table, you can write \snippet{even[j]}.
+If you want the selector to start only at row (or column) \snippet{i} until the end of the table, you can write \snippet{even[i]}.
 
 You can select the last row (or column) with the selector \snippet{Z}.
-With tabularray version 2025A and later, the row or column before last can be selected with \snippet{Z[2]}, etc.
+With \texttt{tabularray} version 2025A and later, the row or column before last can be selected with \snippet{Z[2]}, etc.
 
 \begin{Code}[show-output]
 \begin{tblr}{
@@ -285,12 +285,12 @@ With tabularray version 2025A and later, the row or column before last can be se
 \section{Smart selections with class and id}
 
 \begin{warningbox}{Minimal tabularray version}
-	class and id are only available if your tabularray version is 2025A or above. If the code samples in this section do not compile for you, check that your version is up to date (there is a guide in \Cref{app:version}).
+	class and id are only available if your \texttt{tabularray} version is 2025A or above. If the code samples in this section do not compile for you, check that your version is up to date (there is a guide in \Cref{app:version}).
 \end{warningbox}
 
 Sometimes, the cells we want to select are not neatly aligned to be easily selected with our available selectors. Or we simply don't want to lose time counting and updating the column and row number of a \snippet{cell\{i\}\{j\}} argument every time we add a row to the table, and keep our style easy to read.
 
-Luckily, since version 2025A tabularray offers a class and id mechanism, very similar to how class and id work in HTML: you can give the same class to many cells, but an id only applies to a single cell (if you define the same id several times, only the last definition will be kept in memory).
+Luckily, since version 2025A \texttt{tabularray} offers a class and id mechanism, very similar to how class and id work in HTML: you can give the same class to many cells, but an id only applies to a single cell (if you define the same id several times, only the last definition will be kept in memory).
 
 A class or id name must be lowercase alphabetic, except the first letter of an id that \emph{must} be uppercase. For instance, \snippet{positive} is a valid class name and \snippet{Champion} is a valid id name. \snippet{PRIVATE} or \snippet{top3} are neither valid class or id names.
 
