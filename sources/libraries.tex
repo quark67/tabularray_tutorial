@@ -1,13 +1,13 @@
 \chapter{Some tabularray libraries}\label{sec:libraries}
 
-We will now explore some very useful functionalities of tabularray, that are relegated to libraries: the ability to draw on your table using tikz, and the ability to have diagonal separations in a cell.
+We will now explore some very useful functionalities of \texttt{tabularray}, that are relegated to libraries: the ability to draw on your table using Ti\emph{k}Z, and the ability to have diagonal separations in a cell.
 
-\section{Drawing in your table with Tikz}
+\section{Drawing in your table with Ti\emph{k}Z}
 \begin{warningbox}{Minimal tabularray version}
-The tikz library is only available from tabularray version 2025A or more recent. If the examples in this chapter do not compile for you, check that your version is up to date (there is a guide in \Cref{app:version}).
+The \texttt{tikz} library is only available from \texttt{tabularray} version 2025A or more recent. If the examples in this chapter do not compile for you, check that your version is up to date (there is a guide in \Cref{app:version}).
 \end{warningbox}
 
-In order to use tikz\footnote{tikz is a very powerful drawing package for Latex. This document is not a Tikz tutorial, you can some some tutorials at \url{https://tikz.dev/} or \url{https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ\%3A_A_Tutorial_for_Beginners_(Part_1)\%E2\%80\%94Basic_Drawing}.} in our tables, we will add \snippet{\textbackslash UseTblrLibrary\{tikz\}} in our preamble:
+In order to use Ti\emph{k}Z\footnote{Ti\emph{k}Z is a very powerful drawing package for \LaTeX. This document is not a Ti\emph{k}Z tutorial, you can some some tutorials at \url{https://tikz.dev/} or \url{https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ\%3A_A_Tutorial_for_Beginners_(Part_1)\%E2\%80\%94Basic_Drawing}.} in our tables, we will add \snippet{\textbackslash UseTblrLibrary\{tikz\}} in our preamble:
 
 \begin{Code}
 \documentclass{article}
@@ -36,11 +36,11 @@ We now can add drawings, either above our table, or below our table:
 
 Note that the environments \snippet{tblrtikzbelow} and \snippet{tblrtikzabove} must be declared before the table where you want to draw.
 
-Moreover, each table cell has coordinates that can be used within tikz drawings. For instance, the cell at the 1st row and 5th coordinate is matched by a tikz node named \snippet{(1-5)}. In general, a node of name \snippet{(i-j)} is matching the cell of coordinates \snippet{(i,j)}. There is also the tikz node \snippet{table}, that encompasses the whole table.
+Moreover, each table cell has coordinates that can be used within Ti\emph{k}Z drawings. For instance, the cell at the 1st row and 5th coordinate is matched by a Ti\emph{k}Z node named \snippet{(1-5)}. In general, a node of name \snippet{(i-j)} is matching the cell of coordinates \snippet{(i,j)}. There is also the Ti\emph{k}Z node \snippet{table}, that encompasses the whole table.
 
-You are now free to use any tikz command and make your table prettier. This tutorial is not a tikz tutorial, so I will simply give a few examples of what can be done. 
+You are now free to use any Ti\emph{k}Z command and make your table prettier. This tutorial is not a Ti\emph{k}Z tutorial, so I will simply give a few examples of what can be done. 
 
-The first example is a slight modification of an example from the official tabularray documentation. See how the red lines are drawn above the text, while blue background is drawn below.
+The first example is a slight modification of an example from the official \texttt{tabularray} documentation. See how the red lines are drawn above the text, while blue background is drawn below.
 
 \begin{Code}[show-output]
 % \usepackage{ninecolors} and \UseTblrLibrary{tikz} in the preamble
@@ -62,7 +62,7 @@ The first example is a slight modification of an example from the official tabul
 \end{tblr}
 \end{Code}
 
-Similarly, each intersection \snippet{i,j} (i-th horizontal line and j-th vertical line) has its own name, labelled \snippet{(hi-|vj)}. It can be used as illustrated by the example from the official documentation below:
+Similarly, each intersection \snippet{i,j} ($i$-th horizontal line and $j$-th vertical line) has its own name, labelled \snippet{(hi-|vj)}. It can be used as illustrated by the example from the official documentation below:
 
 \begin{Code}[show-output]
 \begin{tblrtikzabove}
@@ -78,8 +78,8 @@ Similarly, each intersection \snippet{i,j} (i-th horizontal line and j-th vertic
 \end{tblr}	
 \end{Code}
 
-Incorporating tikz in your tables in quite niche. But when you do need it, it is oh so useful! 
-Here is a concrete example, albeit a little bit complicate if you are not familiar with tikz:
+Incorporating Ti\emph{k}Z in your tables is quite niche. But when you do need it, it is oh so useful! 
+Here is a concrete example, albeit a little bit complicate if you are not familiar with Ti\emph{k}Z:
 
 % cheating a bit  
 \begin{adjustwidth}{-1cm}{-1cm}
@@ -100,9 +100,9 @@ Here is a concrete example, albeit a little bit complicate if you are not famili
 		(7-5.south west) rectangle ($(7-5.north west)!\fpeval{5257941 / 9692642}!(7-5.north east)$)
 		(8-5.south west) rectangle ($(8-5.north west)!\fpeval{5217075 / 9692642}!(8-5.north east)$)
 		(9-5.south west) rectangle ($(9-5.north west)!\fpeval{4085708 / 9692642}!(9-5.north east)$);
-	% Don't forget the ; at the end or tikz will crash!
+	% Don't forget the ; at the end or TikZ will crash!
 	
-	% This can be automrated using the tabularray library "functional"
+	% This can be automated using the tabularray library "functional"
 	% and not having to copy-paste numbers anymore, but this is more complex to do!
 	% Such example is implemented in Appendix B 
 \end{tblrtikzbelow}
@@ -125,10 +125,10 @@ Here is a concrete example, albeit a little bit complicate if you are not famili
 \end{Code}
 \end{adjustwidth}
 
-You will notice how the tikz code is completely separated from the rest of the table, leaving the data very easy to read and separated from the styling.
+You will notice how the Ti\emph{k}Z code is completely separated from the rest of the table, leaving the data very easy to read and separated from the styling.
 
 \begin{warningbox}{}
-tabularray's tikz library is \emph{experimental}: it might or might not evolve in future versions with possible compatibility breaks, even though nothing of the sort is currently planned.
+\texttt{tabularray}'s \texttt{tikz} library is \emph{experimental}: it might or might not evolve in future versions with possible compatibility breaks, even though nothing of the sort is currently planned.
 \end{warningbox}
 
 \section{Diagonal separations with diagbox}
@@ -155,10 +155,10 @@ By adding \snippet{\textbackslash UseTblrLibrary\{diagbox\}} in the preamble, yo
 \end{Code}
 
 \begin{infobox}{TL;DR}
-tabularray offers some libraries with extra functionalities, they can be loaded with \snippet{\textbackslash UseTblrLibrary\{the\_library\_name\}} in the preamble. Among these libraries:
+\texttt{tabularray} offers some libraries with extra functionalities, they can be loaded with \snippet{\textbackslash UseTblrLibrary\{the\_library\_name\}} in the preamble. Among these libraries:
 
 \begin{itemize}
-	\item The library \snippet{tikz}, which allows to draw on top (with the environment \snippet{tblrtikzabove}) or below (with the environment \snippet{tblrtikzbelow}) your table. Each cell is given a tikz node named \snippet{(i-j)} and each intersection is given a tikz node named \snippet{(hi-|vj)}.
+	\item The library \snippet{tikz}, which allows to draw on top (with the environment \snippet{tblrtikzabove}) or below (with the environment \snippet{tblrtikzbelow}) your table. Each cell is given a Ti\emph{k}Z node named \snippet{(i-j)} and each intersection is given a Ti\emph{k}Z node named \snippet{(hi-|vj)}.
 	\item The library \snippet{diagbox} allows to create cells with a diagonal separator, with \snippet{\textbackslash diagbox\{text 1\}\{text 2\}} or \snippet{\textbackslash diagboxthree\{text 1\}\{text 2\}\{text 3\}}.
 \end{itemize}
 
@@ -216,9 +216,9 @@ The solution is given in \Cref{app:libraries_solution}.
 
 You have finished this tutorial. Congratulations \emoji{tada}! 
 
-One last word, we said in the introduction that it was always possible to make tables in native Latex, without the tabularray package. You will find on the next page a quick comparison between the two solutions, slightly modified from \url{https://tex.stackexchange.com/a/760558/430417}
+One last word, we said in the introduction that it was always possible to make tables in native \LaTeX, without the \texttt{tabularray} package. You will find on the next page a quick comparison between the two solutions, slightly modified from \url{https://tex.stackexchange.com/a/760558/430417}.
 
-You will also find below some appendix, that contain some helpers to check your tabularray version, a FAQ and some extra crunchy details about tabularray, and the solution to the exercises.
+You will also find below some appendix, that contain some helpers to check your \texttt{tabularray} version, a FAQ and some extra crunchy details about \texttt{tabularray}, and the solution to the exercises.
 
 \begin{standalonebox}
 \begin{tblr}{
