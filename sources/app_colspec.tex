@@ -1,10 +1,10 @@
 \chapter{Advanced colspec}\label{app:colspec}
 
-In this tutorial, we saw that \snippet{colspec} could contain information on the colunms and vertical borders of your table. But, just like with native Latex tables, there is more to it. In most cases however, tabularray has a header option that is preferrable.
+In this tutorial, we saw that \snippet{colspec} could contain information on the colunms and vertical borders of your table. But, just like with native \LaTeX\ tables, there is more to it. In most cases however, \texttt{tabularray} has a header option that is preferrable.
 
 \section{Column separation}
 
-The directive \snippet{@\{\}} allows to specify what Latex must insert between two columns. For instance, if you want two columns to be separated by \snippet{2cm}, you can write:
+The directive \snippet{@\{\}} allows to specify what \LaTeX\ must insert between two columns. For instance, if you want two columns to be separated by \snippet{2cm}, you can write:
 
 \begin{Code}[show-output]
 \begin{tblr}{
@@ -14,7 +14,7 @@ The directive \snippet{@\{\}} allows to specify what Latex must insert between t
 \end{tblr}
 \end{Code}
 
-It is often better to rather use the \snippet{colsep} (margin on both sides), \snippet{leftsep}, \snippet{rightsep} options from tabularray, as they have the advantage of not being completely counter-intuitive: the \snippet{@\{\}} is incompatible with a vertical border, and the extra space does not belong to any column, therefore cannot be styled:
+It is often better to rather use the \snippet{colsep} (margin on both sides), \snippet{leftsep}, \snippet{rightsep} options from \texttt{tabularray}, as they have the advantage of not being completely counter-intuitive: the \snippet{@\{\}} is incompatible with a vertical border, and the extra space does not belong to any column, therefore cannot be styled:
 
 \begin{Code}[show-output]
 \begin{tblr}{
@@ -45,15 +45,15 @@ It is often better to rather use the \snippet{colsep} (margin on both sides), \s
 Let us mention the operators \snippet{>\{\}} and \snippet{<\{\}}, who respectively add some text at the beginning and at the end of each cell of the column. Rather than long explanations, here is an example: 
 
 \begin{Code}[show-output]
-\begin{tblr}{\highLight{>{Candidate }}ccc\highLight{<{s}}}
-      & Name   & Time in~\\ \hline
+\begin{tblr}{\highLight{>{Candidate }}ccc\highLight{<{\,s}}}
+      & Name   & Time in~\!\\ \hline
 	1 & Claude & 10.5 \\
 	2 & Mary   & 5.68 \\
 	3 & Jorgen & 12.8 \\
 \end{tblr}
 \end{Code}
 
-Here again, tabularray has the options \snippet{preto} and \snippet{appto} that are preferrable and do same thing in most cases. If you want to add commands with the operators  \snippet{>} and \snippet{<}, you will maybe have to use the option \snippet{cmd} instead. I will let you refer to the documentation for this one.
+Here again, \texttt{tabularray} has the options \snippet{preto} and \snippet{appto} that are preferrable and do same thing in most cases. If you want to add commands with the operators  \snippet{>} and \snippet{<}, you will maybe have to use the option \snippet{cmd} instead. I will let you refer to the documentation for this one.
 
 \section{Several times the same column}
 
@@ -115,4 +115,4 @@ I have to confess something: the colspec option is not mandatory. As a matter of
 
 The colspec option is essentially useful to give the reader a quick indication about the table structure, and is also useful for applying basic styling to each column. I strongly encourage you to always write the colspec, but know that if there are not enough columns in the compiled table, it's probably because you forgot a few \snippet{\&} somewhere!
 
-Finally, the colspec is mandatory with native Latex tables, so if one day you have to migrate your tables back to native, you will know what to do.
+Finally, the colspec is mandatory with native \LaTeX\ tables, so if one day you have to migrate your tables back to native, you will know what to do.
